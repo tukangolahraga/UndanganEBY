@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+    <style>
+        /* Desain Dasar */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            color: #333;
+            background-color: #fdfaf6;
+            overflow: hidden; /* Kunci scroll di awal */
+        }
+        section {
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e0d8c3;
+        }
+        h1, h2 { color: #8b7355; }
+        .btn {
+            background-color: #8b7355;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .btn:hover { background-color: #6b5840; }
+
+        /* Halaman Sampul (Cover) */
+        #cover {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background-color: #fdfaf6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            transition: top 1s ease-in-out;
+        }
+
+        /* Konten Utama (Disembunyikan di awal) */
+        #main-content {
+            display: none; 
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+
+        /* Form RSVP */
+        input, select, textarea {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Halaman Sampul -->
+    <div id="cover">
+        <h2>Pernikahan Kami</h2>
+        <h1>Eby Mahbubi & Indah Nurfatihah</h1>
+        <p>27 Desember 2026</p>
+        <button class="btn" onclick="bukaUndangan()">Buka Undangan</button>
+    </div>
+
+    <!-- Konten Utama Undangan -->
+    <div id="main-content">
+        
+        <!-- Audio (Ganti src dengan link lagu pilihanmu) -->
+        <audio id="bg-music" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- 2. Pembuka & Profil -->
+        <section id="profil">
+            <h2>Mempelai</h2>
+            <p>Dengan memohon rahmat dan ridho Tuhan, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami:</p>
+            <h3>Eby Mahbubi</h3>
+            <p>Putra dari Bapak X & Ibu Y</p>
+            <p><b>&</b></p>
+            <h3>Indah Nurfatihah</h3>
+            <p>Putri dari Bapak A & Ibu B</p>
+        </section>
+
+        <!-- 3. Informasi Acara -->
+        <section id="acara">
+            <h2>Waktu & Tempat</h2>
+            <p><b>Akad Nikah:</b><br>Sabtu, 12 Desember 2026<br>08.00 - 10.00 WIB</p>
+            <p><b>Resepsi:</b><br>Sabtu, 12 Desember 2026<br>11.00 - 14.00 WIB</p>
+            <p><b>Lokasi:</b> Gedung Pernikahan Indah, Jakarta</p>
+            <button class="btn" onclick="window.open('https://maps.google.com')">Buka Google Maps</button>
+        </section>
+
+        <!-- 4. RSVP & Buku Tamu -->
+        <section id="rsvp">
+            <h2>Konfirmasi Kehadiran</h2>
+            <form onsubmit="kirimRSVP(event)">
+                <input type="text" id="nama" placeholder="Nama Anda" required><br>
+                <select id="status" required>
+                    <option value="" disabled selected>Apakah Anda akan hadir?</option>
+                    <option value="Hadir">Ya, Saya Hadir</option>
+                    <option value="Tidak">Maaf, Tidak Bisa Hadir</option>
+                </select><br>
+                <textarea id="pesan" placeholder="Berikan ucapan atau doa..." rows="4" required></textarea><br>
+                <button type="submit" class="btn">Kirim Ucapan</button>
+            </form>
+        </section>
+
+        <!-- 5. Amplop Digital -->
+        <section id="amplop">
+            <h2>Kirim Hadiah</h2>
+            <p>Bagi keluarga dan sahabat yang ingin mengirimkan hadiah, silakan mengirimkannya melalui:</p>
+            <p><b>BCA - 1234567890</b><br>a.n Eby Mahbubi</p>
+            <button class="btn" onclick="salinRekening()">Salin No. Rekening</button>
+        </section>
+
+        <!-- 6. Penutup -->
+        <section id="penutup">
+            <h2>Terima Kasih</h2>
+            <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+            <p><b>- Eby Mahbubi & Indah Nurfatihah -</b></p>
+        </section>
+
+    </div>
+
+    <!-- Script Interaktif -->
+    <script>
+        // Fungsi Membuka Undangan
+        function bukaUndangan() {
+            // Hapus cover dengan animasi naik ke atas
+            document.getElementById("cover").style.top = "-100vh";
+            
+            // Tampilkan konten utama & buka kunci scroll
+            setTimeout(() => {
+                document.getElementById("main-content").style.display = "block";
+                document.body.style.overflow = "auto";
+                // Beri sedikit waktu sebelum fade-in
+                setTimeout(() => {
+                    document.getElementById("main-content").style.opacity = "1";
+                }, 50);
+            }, 800); // Menunggu animasi cover selesai (800ms)
+
+            // Mainkan Musik (Browser mungkin memblokir jika tidak ada interaksi klik)
+            document.getElementById("bg-music").play();
+        }
+
+        // Fungsi Salin Rekening
+        function salinRekening() {
+            navigator.clipboard.writeText("1234567890");
+            alert("Nomor rekening berhasil disalin!");
+        }
+
+        // Fungsi Simulasi Kirim RSVP
+        function kirimRSVP(event) {
+            event.preventDefault(); // Mencegah halaman reload
+            let nama = document.getElementById("nama").value;
+            alert("Terima kasih " + nama + ", konfirmasi dan ucapanmu telah disimpan!");
+            event.target.reset(); // Kosongkan form
+        }
+    </script>
+</body>
+</html>
