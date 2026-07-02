@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <!-- Menggunakan viewport khusus agar pas di layar HP dan tidak bisa di-zoom secara tidak sengaja -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>The Wedding of Eby & Indah</title>
     
@@ -122,6 +123,7 @@
 <body class="font-body text-dark locked">
 
     <!-- COVER SECTION (Full 100dvh untuk Mobile) -->
+    <!-- h-[100dvh] sangat penting agar tidak terpotong address bar Chrome/Safari HP -->
     <section id="cover" class="fixed inset-y-0 left-0 right-0 mx-auto w-full max-w-md h-[100dvh] z-50 flex flex-col justify-center items-center text-center transition-all duration-1000 ease-in-out shadow-2xl overflow-hidden">
         <div class="cover-overlay absolute inset-0"></div>
         
@@ -147,6 +149,7 @@
         
         <!-- AUDIO BACKGROUND -->
         <audio id="bg-music" loop>
+            <!-- Ganti src dengan link audio Anda, gunakan format yang didukung seperti .mp3 -->
             <source src="YTMP3GG_YouTube_Westlife-My-Love-Lyrics_Media_mlWHMHQ8f0_009_128k.mp3" type="audio/mpeg">
         </audio>
 
@@ -199,11 +202,11 @@
             </div>
         </section>
 
-        <!-- SECTION 3: ACARA & COUNTDOWN (Didesain Full-Width / Mepet) -->
-        <section id="event" class="py-12 bg-sage text-cream relative shadow-inner">
-            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/floral-flourish.png')]"></div>
+        <!-- SECTION 3: ACARA & COUNTDOWN -->
+        <section id="event" class="py-12 px-6 bg-sage text-cream relative rounded-3xl mx-2 shadow-inner">
+            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/floral-flourish.png')] rounded-3xl"></div>
             
-            <div class="relative z-10 text-center fade-up px-6">
+            <div class="relative z-10 text-center fade-up">
                 <h2 class="font-serif text-2xl sm:text-3xl mb-8">Save The Date</h2>
                 
                 <!-- Countdown Box -->
@@ -225,32 +228,29 @@
                         <span class="text-[10px] uppercase tracking-wider">Detik</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- Kotak Informasi Mepet Kanan-Kiri (w-full, tanpa padding luar) -->
-            <div class="relative z-10 fade-up">
                 <!-- Akad Card -->
-                <div class="bg-white text-dark py-8 px-6 border-b border-gray-100 shadow-sm relative overflow-hidden text-center w-full">
+                <div class="bg-white text-dark p-6 rounded-2xl shadow-xl mb-6 relative overflow-hidden text-center transform transition hover:scale-105 duration-300">
                     <div class="absolute top-0 right-0 w-16 h-16 bg-gold rounded-bl-full opacity-20"></div>
                     <h3 class="font-serif text-2xl text-sage mb-2">Akad Nikah</h3>
                     <p class="font-bold text-gray-700">Minggu, 12 November 2026</p>
                     <p class="text-sm text-gray-500 mb-4">Pukul 08.00 WIB - Selesai</p>
                     <p class="text-sm font-semibold mb-1">Masjid Agung Al-Falah</p>
-                    <p class="text-xs text-gray-600 mb-5">Jl. Jendral Sudirman No. 1, Jakarta Selatan</p>
-                    <a href="#" class="inline-block bg-sage text-white text-xs px-6 py-3 rounded-full hover:bg-sagedark transition shadow-md">
+                    <p class="text-xs text-gray-600 mb-4">Jl. Jendral Sudirman No. 1, Jakarta Selatan</p>
+                    <a href="#" class="inline-block bg-sage text-white text-xs px-5 py-2.5 rounded-full hover:bg-sagedark transition shadow-md">
                         <i class="fa-solid fa-map-location-dot mr-1"></i> Buka Google Maps
                     </a>
                 </div>
 
                 <!-- Resepsi Card -->
-                <div class="bg-white text-dark py-8 px-6 shadow-sm border-b border-gray-100 relative overflow-hidden text-center w-full">
+                <div class="bg-white text-dark p-6 rounded-2xl shadow-xl relative overflow-hidden text-center transform transition hover:scale-105 duration-300">
                     <div class="absolute top-0 right-0 w-16 h-16 bg-gold rounded-bl-full opacity-20"></div>
                     <h3 class="font-serif text-2xl text-sage mb-2">Resepsi</h3>
                     <p class="font-bold text-gray-700">Minggu, 12 November 2026</p>
                     <p class="text-sm text-gray-500 mb-4">Pukul 11.00 - 14.00 WIB</p>
                     <p class="text-sm font-semibold mb-1">Grand Ballroom Hotel Bintang</p>
-                    <p class="text-xs text-gray-600 mb-5">Jl. Gatot Subroto No. 45, Jakarta Selatan</p>
-                    <a href="#" class="inline-block bg-sage text-white text-xs px-6 py-3 rounded-full hover:bg-sagedark transition shadow-md">
+                    <p class="text-xs text-gray-600 mb-4">Jl. Gatot Subroto No. 45, Jakarta Selatan</p>
+                    <a href="#" class="inline-block bg-sage text-white text-xs px-5 py-2.5 rounded-full hover:bg-sagedark transition shadow-md">
                         <i class="fa-solid fa-map-location-dot mr-1"></i> Buka Google Maps
                     </a>
                 </div>
@@ -321,59 +321,61 @@
             </div>
         </section>
 
-        <!-- SECTION 6: DIGITAL ENVELOPE (ATM & KARTU NAMA) - FULL WIDTH -->
-        <section id="gift" class="py-12 text-center bg-gray-50">
-            <div class="fade-up px-6 mb-8">
+        <!-- SECTION 6: DIGITAL ENVELOPE (ATM & KARTU NAMA) -->
+        <section id="gift" class="py-12 px-6 text-center">
+            <div class="fade-up">
                 <i class="fa-solid fa-gift text-4xl text-gold mb-4"></i>
                 <h2 class="font-serif text-3xl text-sage mb-2">Wedding Gift</h2>
                 <div class="h-1 w-20 bg-gold mx-auto rounded-full mb-6"></div>
-                <p class="text-sm text-gray-600">Bagi keluarga dan sahabat yang ingin mengirimkan tanda kasih, dapat melalui tautan berikut:</p>
+                <p class="text-sm text-gray-600 mb-8">Bagi keluarga dan sahabat yang ingin mengirimkan tanda kasih, dapat melalui tautan berikut:</p>
             </div>
 
-            <!-- Kartu ATM Design (Mepet Kanan Kiri / Full Width) -->
-            <div class="fade-up mb-10 w-full">
-                <!-- Kita hilangkan max-width dan rounded corners agar menempel ujung ke ujung -->
-                <div class="relative w-full bg-gradient-to-br from-gray-800 via-gray-900 to-black shadow-lg overflow-hidden text-white py-8 px-6 flex flex-col justify-between text-left border-y border-gray-700">
+            <!-- Kartu ATM Design -->
+            <div class="fade-up mb-10">
+                <div class="relative w-full max-w-[320px] mx-auto h-[190px] bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-2xl shadow-2xl overflow-hidden text-white p-5 flex flex-col justify-between text-left transform transition-transform hover:scale-105 duration-300 border border-gray-700">
                     <!-- Decorative Elements -->
                     <div class="absolute -right-12 -top-12 w-32 h-32 bg-white opacity-5 rounded-full"></div>
                     <div class="absolute -bottom-10 -left-10 w-24 h-24 bg-white opacity-5 rounded-full"></div>
                     
-                    <div class="flex justify-between items-center z-10 mb-6">
+                    <!-- Top Row -->
+                    <div class="flex justify-between items-center z-10">
                         <i class="fa-solid fa-microchip text-4xl text-gold opacity-90"></i>
                         <span class="font-serif font-bold text-xl tracking-widest text-gray-200 italic">BCA</span>
                     </div>
                     
-                    <div class="z-10 mb-6">
+                    <!-- Middle Row: Card Number -->
+                    <div class="z-10 mt-2">
                         <p class="font-mono text-2xl tracking-[0.15em] text-shadow-light">1234 5678 90</p>
                     </div>
                     
+                    <!-- Bottom Row: Name -->
                     <div class="z-10 flex justify-between items-end uppercase tracking-widest text-[10px] text-gray-300">
                         <div>
                             <p class="opacity-50 text-[8px] mb-1 tracking-wider">Cardholder Name</p>
                             <p class="font-semibold text-sm text-gray-100">Eby Mahbubi</p>
                         </div>
                         <div class="text-right">
-                            <i class="fa-brands fa-cc-mastercard text-4xl opacity-60"></i>
+                            <i class="fa-brands fa-cc-mastercard text-3xl opacity-60"></i>
                         </div>
                     </div>
                 </div>
                 
-                <button onclick="copyText('1234567890', 'Nomor Rekening BCA')" class="mt-6 text-xs bg-sage hover:bg-sagedark text-white py-3 px-8 rounded-full shadow-md flex items-center justify-center gap-2 mx-auto transition transform hover:-translate-y-1">
+                <!-- Salin Rekening Button -->
+                <button onclick="copyText('1234567890', 'Nomor Rekening BCA')" class="mt-5 text-xs bg-sage hover:bg-sagedark text-white py-2.5 px-6 rounded-full shadow-md flex items-center justify-center gap-2 mx-auto transition transform hover:-translate-y-1">
                     <i class="fa-regular fa-copy"></i> Salin Rekening
                 </button>
             </div>
 
-            <!-- Kartu Nama Design (Mepet Kanan Kiri / Full Width) -->
-            <div class="fade-up mb-6 w-full">
-                <!-- Sama halnya, hapus border radius dan pasang border Y -->
-                <div class="relative w-full bg-white shadow-sm border-y border-gray-200 py-8 px-6 text-left overflow-hidden">
+            <!-- Kartu Nama Design (Kirim Kado) -->
+            <div class="fade-up mb-6">
+                <div class="relative w-full max-w-[320px] mx-auto bg-cream rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-t-4 border-sage p-6 text-left transform transition-transform hover:scale-105 duration-300 overflow-hidden">
                     <div class="absolute -right-4 -bottom-4 opacity-5">
                         <i class="fa-solid fa-gift text-8xl"></i>
                     </div>
                     
-                    <div class="flex items-center gap-4 mb-5 border-b border-gray-100 pb-5 relative z-10">
-                        <div class="w-14 h-14 bg-sage/10 rounded-full flex items-center justify-center text-sage">
-                            <i class="fa-solid fa-box-open text-2xl"></i>
+                    <div class="flex items-center gap-4 mb-4 border-b border-gray-200 pb-4 relative z-10">
+                        <div class="w-12 h-12 bg-sage/10 rounded-full flex items-center justify-center text-sage">
+                            <i class="fa-solid fa-box-open text-xl"></i>
                         </div>
                         <div>
                             <h3 class="font-bold text-dark text-lg uppercase tracking-wide">Kirim Kado</h3>
@@ -382,25 +384,25 @@
                     </div>
                     
                     <div class="text-sm text-gray-600 space-y-3 z-10 relative">
-                        <p class="font-semibold text-dark flex items-center gap-3">
-                            <i class="fa-solid fa-user text-sage w-5"></i>
-                            <span class="text-base">Indah / Eby</span>
+                        <p class="font-semibold text-dark flex items-center gap-2">
+                            <i class="fa-solid fa-user text-sage w-4"></i>
+                            <span>Indah / Eby</span>
                         </p>
-                        <div class="flex items-start gap-3">
-                            <i class="fa-solid fa-location-dot mt-1 text-sage w-5"></i>
-                            <p class="leading-relaxed text-sm">Jl. Melati No. 42, RT 01/RW 02, Kec. Kebayoran, Jakarta Selatan, 12345</p>
+                        <div class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot mt-1 text-sage w-4"></i>
+                            <p class="leading-relaxed text-xs">Jl. Melati No. 42, RT 01/RW 02, Kec. Kebayoran, Jakarta Selatan, 12345</p>
                         </div>
                     </div>
                 </div>
                 
-                <button onclick="copyText('Jl. Melati No. 42, RT 01/RW 02, Kec. Kebayoran, Jakarta Selatan, 12345', 'Alamat Kado')" class="mt-6 text-xs bg-sage hover:bg-sagedark text-white py-3 px-8 rounded-full shadow-md flex items-center justify-center gap-2 mx-auto transition transform hover:-translate-y-1">
+                <button onclick="copyText('Jl. Melati No. 42, RT 01/RW 02, Kec. Kebayoran, Jakarta Selatan, 12345', 'Alamat Kado')" class="mt-5 text-xs bg-sage hover:bg-sagedark text-white py-2.5 px-6 rounded-full shadow-md flex items-center justify-center gap-2 mx-auto transition transform hover:-translate-y-1">
                     <i class="fa-regular fa-copy"></i> Salin Alamat
                 </button>
             </div>
         </section>
 
         <!-- FOOTER -->
-        <footer class="py-12 px-6 text-center bg-dark text-cream relative">
+        <footer class="py-12 px-6 text-center bg-dark text-cream mt-4 relative rounded-t-3xl">
             <h1 class="font-script text-4xl sm:text-5xl text-gold mb-4 mt-2">Eby & Indah</h1>
             <p class="text-[10px] sm:text-xs font-light text-gray-400 mb-4">Terima kasih atas doa dan restu yang telah diberikan.</p>
             <p class="text-[10px] text-gray-500">Created with <i class="fa-solid fa-heart text-red-500 mx-1"></i> by AI Invitation</p>
@@ -427,6 +429,7 @@
                 <i class="fa-solid fa-images text-lg"></i>
                 <span>Gallery</span>
             </a>
+            <!-- Tambahan menu RSVP -->
             <a href="#rsvp" class="nav-item flex flex-col items-center gap-1 text-[10px] w-14" onclick="setActiveNav(this)">
                 <i class="fa-solid fa-envelope-open-text text-lg"></i>
                 <span>RSVP</span>
@@ -572,6 +575,7 @@
 
         // 5. Salin Teks ke Clipboard & Notifikasi (Toast)
         function copyText(text, type) {
+            // Gunakan API modern clipboard fallback
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(text).then(() => {
                     showToast(type + " berhasil disalin!");
@@ -610,7 +614,7 @@
         }
 
         // 6. Formulir RSVP & Google Sheets Integration
-        // MASUKKAN URL GOOGLE SCRIPT ANDA DI SINI NANTI
+        // MASUKKAN URL GOOGLE SCRIPT ANDA DI SINI
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwsrV8gTCroq7uAIjzSUj-dpV5wPd8oJd0qGDC8kaF_3j6d0x_-7O4caPnrSJvt9np1mg/exec'; 
         
         const rsvpForm = document.getElementById('rsvp-form');
@@ -649,6 +653,7 @@
                         }, 3000);
                     })
                     .catch(error => {
+                        // Walaupun fetch gagal (karena URL GS mungkin belum valid), UI tetap bekerja
                         console.error('Error GS:', error.message);
                         showToast("Ucapan ditampilkan di halaman.");
                         rsvpForm.reset();
