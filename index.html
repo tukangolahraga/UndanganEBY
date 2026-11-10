@@ -203,7 +203,7 @@
         </section>
 
         <!-- SECTION 3: ACARA & COUNTDOWN -->
-        <section id="event" class="py-12 px-6 bg-sage text-cream relative rounded-3xl mx-2 shadow-inner">
+        <section id="event" data-akad-start="2026-12-27T08:00:00+07:00" class="py-12 px-6 bg-sage text-cream relative rounded-3xl mx-2 shadow-inner">
             <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/floral-flourish.png')] rounded-3xl"></div>
             
             <div class="relative z-10 text-center fade-up">
@@ -233,11 +233,10 @@
                 <div class="bg-white text-dark p-6 rounded-2xl shadow-xl mb-6 relative overflow-hidden text-center transform transition hover:scale-105 duration-300">
                     <div class="absolute top-0 right-0 w-16 h-16 bg-gold rounded-bl-full opacity-20"></div>
                     <h3 class="font-serif text-2xl text-sage mb-2">Akad Nikah</h3>
-                    <p class="font-bold text-gray-700">Minggu, 27 Desember 2026</p>
-                    <p class="text-sm text-gray-500 mb-4">Pukul 08.00 WIB - Selesai</p>
-                    <p class="text-sm font-semibold mb-1">Masjid Agung Al-Falah</p>
-                    <p class="text-xs text-gray-600 mb-4">Jl. Jendral Sudirman No. 1, Jakarta Selatan</p>
-                    <a href="#" class="inline-block bg-sage text-white text-xs px-5 py-2.5 rounded-full hover:bg-sagedark transition shadow-md">
+                    <p data-event-date class="font-bold text-gray-700"></p>
+                    <p class="text-sm text-gray-500 mb-4">Pukul <span id="akad-time"></span> WIB - Selesai</p>
+                    <p class="text-sm font-semibold mb-4">Hotel Kutaraja</p>
+                    <a href="https://maps.app.goo.gl/fYLYXgJDSWe9rBoHA" target="_blank" rel="noopener noreferrer" class="inline-block bg-sage text-white text-xs px-5 py-2.5 rounded-full hover:bg-sagedark transition shadow-md">
                         <i class="fa-solid fa-map-location-dot mr-1"></i> Buka Google Maps
                     </a>
                 </div>
@@ -246,11 +245,10 @@
                 <div class="bg-white text-dark p-6 rounded-2xl shadow-xl relative overflow-hidden text-center transform transition hover:scale-105 duration-300">
                     <div class="absolute top-0 right-0 w-16 h-16 bg-gold rounded-bl-full opacity-20"></div>
                     <h3 class="font-serif text-2xl text-sage mb-2">Resepsi</h3>
-                    <p class="font-bold text-gray-700">Minggu, 27 Desember 2026</p>
+                    <p data-event-date class="font-bold text-gray-700"></p>
                     <p class="text-sm text-gray-500 mb-4">Pukul 11.00 - 14.00 WIB</p>
-                    <p class="text-sm font-semibold mb-1">Grand Ballroom Hotel Bintang</p>
-                    <p class="text-xs text-gray-600 mb-4">Jl. Gatot Subroto No. 45, Jakarta Selatan</p>
-                    <a href="#" class="inline-block bg-sage text-white text-xs px-5 py-2.5 rounded-full hover:bg-sagedark transition shadow-md">
+                    <p class="text-sm font-semibold mb-4">Hotel Kutaraja</p>
+                    <a href="https://maps.app.goo.gl/fYLYXgJDSWe9rBoHA" target="_blank" rel="noopener noreferrer" class="inline-block bg-sage text-white text-xs px-5 py-2.5 rounded-full hover:bg-sagedark transition shadow-md">
                         <i class="fa-solid fa-map-location-dot mr-1"></i> Buka Google Maps
                     </a>
                 </div>
@@ -285,38 +283,34 @@
             <div class="bg-white p-6 rounded-2xl shadow-xl fade-up border border-sage/20">
                 <form id="rsvp-form" class="space-y-4 text-left">
                     <div>
-                        <label class="block text-xs font-semibold text-dark mb-1">Nama Lengkap</label>
-                        <input type="text" name="nama" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage" placeholder="Masukkan nama Anda">
+                        <label class="block text-xs font-semibold text-dark mb-1" for="rsvp-name">Nama Lengkap</label>
+                        <input type="text" id="rsvp-name" name="nama" autocomplete="name" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage" placeholder="Masukkan nama Anda">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-dark mb-1">Konfirmasi Kehadiran</label>
-                        <select name="kehadiran" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage">
+                        <label class="block text-xs font-semibold text-dark mb-1" for="rsvp-attendance">Konfirmasi Kehadiran</label>
+                        <select id="rsvp-attendance" name="kehadiran" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage">
+                            <option value="" selected disabled>Pilih status kehadiran</option>
                             <option value="Hadir">Ya, Saya akan Hadir</option>
                             <option value="Tidak Hadir">Maaf, Saya Tidak Bisa Hadir</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-dark mb-1">Ucapan & Doa</label>
-                        <textarea name="ucapan" required rows="3" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage" placeholder="Berikan ucapan dan doa terbaikmu..."></textarea>
+                        <label class="block text-xs font-semibold text-dark mb-1" for="rsvp-wish">Ucapan &amp; Doa (opsional)</label>
+                        <textarea id="rsvp-wish" name="ucapan" rows="3" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage" placeholder="Berikan ucapan dan doa terbaikmu..."></textarea>
                     </div>
                     <button type="submit" class="w-full bg-sage text-white font-semibold py-3 rounded-lg shadow-md hover:bg-sagedark transition flex justify-center items-center gap-2">
-                        <i class="fa-solid fa-paper-plane"></i> Kirim Ucapan
+                        <i class="fa-solid fa-paper-plane"></i> Kirim Konfirmasi
                     </button>
+                    <p id="rsvp-status" role="status" class="text-sm text-gray-700"></p>
                 </form>
             </div>
 
             <!-- Area Ucapan -->
-            <div class="mt-8 bg-white p-5 rounded-2xl shadow-inner border border-gray-100 fade-up">
+            <div id="rsvp-wishes" hidden class="mt-8 bg-white p-5 rounded-2xl shadow-inner border border-gray-100 fade-up">
                 <h3 class="font-serif text-lg text-sage mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-comments"></i> Pesan Teman & Keluarga
+                    <i class="fa-solid fa-comments"></i> Ucapan Anda
                 </h3>
                 <div id="comments-container" class="max-h-64 overflow-y-auto custom-scrollbar pr-2 space-y-3">
-                    <!-- Default Komentar Dummy -->
-                    <div class="bg-gray-50 p-3 rounded-lg border-l-4 border-sage">
-                        <h4 class="font-bold text-sm text-dark">Keluarga Budi</h4>
-                        <span class="text-[10px] text-sage bg-sage/10 px-2 py-0.5 rounded-full inline-block mb-1">Hadir</span>
-                        <p class="text-xs text-gray-600">Selamat menempuh hidup baru Eby dan Indah, semoga menjadi keluarga yang sakinah mawaddah warahmah.</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -552,26 +546,34 @@
             element.classList.add('active');
         }
 
-        // 4. Hitung Mundur (Countdown Timer)
-        const targetDate = new Date("Nov 12, 2026 08:00:00").getTime();
-        
-        setInterval(function() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
+        // 4. Jadwal Acara dan Hitung Mundur
+        const akadStart = new Date(document.getElementById("event").dataset.akadStart);
+        const dateLabel = new Intl.DateTimeFormat("id-ID", {
+            dateStyle: "full",
+            timeZone: "Asia/Jakarta"
+        }).format(akadStart);
+        const akadTime = new Intl.DateTimeFormat("id-ID", {
+            hour: "2-digit",
+            minute: "2-digit",
+            hourCycle: "h23",
+            timeZone: "Asia/Jakarta"
+        }).format(akadStart);
 
-            if (distance < 0) {
-                document.getElementById("hari").innerText = "00";
-                document.getElementById("jam").innerText = "00";
-                document.getElementById("menit").innerText = "00";
-                document.getElementById("detik").innerText = "00";
-                return;
-            }
+        document.querySelectorAll("[data-event-date]").forEach(element => {
+            element.textContent = dateLabel;
+        });
+        document.getElementById("akad-time").textContent = akadTime;
 
-            document.getElementById("hari").innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
-            document.getElementById("jam").innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-            document.getElementById("menit").innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-            document.getElementById("detik").innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
-        }, 1000);
+        function updateCountdown() {
+            const seconds = Math.max(0, Math.floor((akadStart.getTime() - Date.now()) / 1000));
+            document.getElementById("hari").textContent = String(Math.floor(seconds / 86400)).padStart(2, "0");
+            document.getElementById("jam").textContent = String(Math.floor(seconds / 3600) % 24).padStart(2, "0");
+            document.getElementById("menit").textContent = String(Math.floor(seconds / 60) % 60).padStart(2, "0");
+            document.getElementById("detik").textContent = String(seconds % 60).padStart(2, "0");
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
 
         // 5. Salin Teks ke Clipboard & Notifikasi (Toast)
         function copyText(text, type) {
@@ -615,75 +617,83 @@
 
         // 6. Formulir RSVP & Google Sheets Integration
         // MASUKKAN URL GOOGLE SCRIPT ANDA DI SINI
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwsrV8gTCroq7uAIjzSUj-dpV5wPd8oJd0qGDC8kaF_3j6d0x_-7O4caPnrSJvt9np1mg/exec'; 
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwz1dTz1J30DgsooPyu6ZAsQHqshpuvyh2o7--3kyFiEEOux9Jcm0v3yunpMKgX1NuHKQ/exec'; 
         
+
         const rsvpForm = document.getElementById('rsvp-form');
+        const rsvpStatus = document.getElementById('rsvp-status');
+        const rsvpButton = rsvpForm.querySelector('button[type="submit"]');
+        const rsvpButtonLabel = rsvpButton.innerHTML;
 
-        if(rsvpForm) {
-            rsvpForm.addEventListener('submit', e => {
-                e.preventDefault();
-                const btn = rsvpForm.querySelector('button');
-                const originalHTML = btn.innerHTML;
-                
-                btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Mengirim...';
-                btn.disabled = true;
-                btn.classList.add('opacity-70');
+        rsvpForm.addEventListener('input', () => {
+            if (!rsvpButton.disabled) rsvpStatus.textContent = '';
+        });
 
-                const formData = new FormData(rsvpForm);
-                const nama = formData.get('nama');
-                const kehadiran = formData.get('kehadiran');
-                const ucapan = formData.get('ucapan');
+        rsvpForm.addEventListener('submit', async event => {
+            event.preventDefault();
+            if (rsvpButton.disabled) return;
 
-                // Tampilkan ucapan di UI segera (Real-time feel)
-                appendComment(nama, kehadiran, ucapan);
+            const formData = new FormData(rsvpForm);
+            const nama = formData.get('nama').trim();
+            const kehadiran = formData.get('kehadiran');
+            const ucapan = formData.get('ucapan').trim();
+            if (!nama) {
+                rsvpStatus.textContent = 'Masukkan nama Anda.';
+                document.getElementById('rsvp-name').focus();
+                return;
+            }
 
-                // Kirim data ke backend Google Sheet
-                fetch(scriptURL, { method: 'POST', body: formData })
-                    .then(response => {
-                        btn.innerHTML = '<i class="fa-solid fa-check"></i> Terkirim!';
-                        btn.classList.replace('bg-sage', 'bg-gold');
-                        showToast("Terima kasih atas doa restunya!");
-                        rsvpForm.reset();
-                        
-                        setTimeout(() => {
-                            btn.innerHTML = originalHTML;
-                            btn.disabled = false;
-                            btn.classList.replace('bg-gold', 'bg-sage');
-                            btn.classList.remove('opacity-70');
-                        }, 3000);
-                    })
-                    .catch(error => {
-                        // Walaupun fetch gagal (karena URL GS mungkin belum valid), UI tetap bekerja
-                        console.error('Error GS:', error.message);
-                        showToast("Ucapan ditampilkan di halaman.");
-                        rsvpForm.reset();
-                        
-                        btn.innerHTML = originalHTML;
-                        btn.disabled = false;
-                        btn.classList.remove('opacity-70');
-                    });
-            });
-        }
+            formData.set('nama', nama);
+            formData.set('ucapan', ucapan);
+            rsvpButton.disabled = true;
+            rsvpButton.textContent = 'Mengirim...';
+            rsvpStatus.textContent = 'Sedang mengirim konfirmasi.';
 
-        function appendComment(nama, kehadiran, ucapan) {
-            const container = document.getElementById('comments-container');
-            const isHadir = kehadiran === 'Hadir';
-            
-            // Pengaturan kelas statis (Tailwind purge friendly)
-            const borderClass = isHadir ? 'border-sage' : 'border-gold';
-            const textClass = isHadir ? 'text-sage' : 'text-gold';
-            const bgClass = isHadir ? 'bg-sage/10' : 'bg-gold/10';
-            
-            const newComment = document.createElement('div');
-            newComment.className = `bg-gray-50 p-3 rounded-lg border-l-4 ${borderClass} fade-up visible mb-3`;
-            newComment.innerHTML = `
-                <h4 class="font-bold text-sm text-dark">${nama}</h4>
-                <span class="text-[10px] ${textClass} ${bgClass} px-2 py-0.5 rounded-full inline-block mb-1">${kehadiran}</span>
-                <p class="text-xs text-gray-600 break-words">${ucapan}</p>
-            `;
-            
-            // Masukkan pesan terbaru ke posisi teratas
-            container.insertBefore(newComment, container.firstChild);
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 15000);
+            try {
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: formData,
+                    signal: controller.signal
+                });
+                if (!response.ok) throw new Error('RSVP HTTP error');
+
+                const reply = (await response.text()).trim();
+                if (reply !== 'Success') {
+                    const result = JSON.parse(reply);
+                    if (result?.success !== true && result?.result !== 'success') {
+                        throw new Error('RSVP storage not confirmed');
+                    }
+                }
+            } catch {
+                rsvpStatus.textContent = 'Pengiriman belum bisa dikonfirmasi. Isian Anda masih ada. Silakan coba lagi.';
+                return;
+            } finally {
+                clearTimeout(timeout);
+                rsvpButton.disabled = false;
+                rsvpButton.innerHTML = rsvpButtonLabel;
+            }
+
+            rsvpForm.reset();
+            rsvpStatus.textContent = 'Konfirmasi kehadiran Anda sudah tercatat. Terima kasih!';
+            if (ucapan) showRsvpWish(nama, ucapan);
+        });
+
+        function showRsvpWish(nama, ucapan) {
+            const author = document.createElement('h4');
+            author.className = 'font-bold text-sm text-dark';
+            author.textContent = nama;
+
+            const message = document.createElement('p');
+            message.className = 'text-xs text-gray-600 break-words';
+            message.textContent = ucapan;
+
+            const wish = document.createElement('div');
+            wish.className = 'bg-gray-50 p-3 rounded-lg border-l-4 border-sage';
+            wish.append(author, message);
+            document.getElementById('comments-container').replaceChildren(wish);
+            document.getElementById('rsvp-wishes').hidden = false;
         }
     </script>
 </body>
